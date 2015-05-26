@@ -48,6 +48,7 @@ class Twitter
             $request = $this->twitter->oauth('oauth/request_token', array('oauth_callback' => CALLBACK));
         } catch (\Abraham\TwitterOAuth\TwitterOAuthException $ex) {
             echo $ex->getMessage();
+            exit();
         }
 
         $url = $this->twitter->url('oauth/authorize', array('oauth_token' => $request['oauth_token']));
@@ -71,7 +72,7 @@ class Twitter
             );
         } catch (\Abraham\TwitterOAuth\TwitterOAuthException $ex) {
             echo $ex->getMessage();
-            return;
+            exit();
         }
 
         $_SESSION['access_token'] = $access_token['oauth_token'];
