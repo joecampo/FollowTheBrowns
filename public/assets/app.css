@@ -1,0 +1,91 @@
+body {
+    font-family: "Slabo 27px";
+    font-size: 16px;
+}
+
+a, a:hover, a:visited {
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    padding-top: 25px;
+    color: #ff3c00;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Slabo 27px";
+    font-size: 72px;
+    width: 100%;
+    font-weight: 400;
+    text-align: center; 
+}
+
+.follow {
+    padding: 0px 0px 25px 0px;
+    margin: 0px;
+    width: 100%;
+    background-color: #311d05;
+    background-size: cover;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer {
+    padding: 25px 0px 25px 0px;
+    margin: 0px;
+    width: 100%;
+    font-family: "Slabo 27px";
+    font-size: 16px;
+    background-color: #311d05;
+    background-size: cover;
+    text-align: center;
+    color: #ffffff;
+}
+
+.lead {
+    width: 50%;
+    text-align: center;
+    margin: 0px auto 20px auto;
+}
+
+.btn-browns {
+    background-color: #ff3c00;
+    color: #fff;
+}
+
+.container {
+    padding-top: 25px;
+    text-align: center;
+}         
+
+.avatar {
+    margin-bottom: 45px;
+    text-align: center;
+    font-size: 22px;
+    text-height: font-size;
+}
+
+.avatar img {
+    -webkit-border-radius: 75%;
+    -moz-border-radius: 75%;
+    border-radius: 75%;
+    border: 1px solid #ff3c00;
+    float: left;
+}
+
+.number {
+    color: #ff3c00;
+}
+
+.content {
+    line-height: .75;
+}
+
+.position {
+    font-style: italic;
+    color: #311d05;
+    font-size: 16px;
+}
+

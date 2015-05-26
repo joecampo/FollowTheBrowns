@@ -1,0 +1,19 @@
+{
+    "name": "Campo/Browns",
+    "description": "Cleveland Browns Roster Twitter Directory",
+    "authors": [
+        {
+            "name": "Joe Campo",
+            "email": "jcampo@gmail.com"
+        }
+    ],
+    "require": {
+        "slimcontroller/slimcontroller": "0.4.3",
+        "abraham/twitteroauth": "^0.5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Campo\\Browns\\": "src/"
+        }
+    }
+}
