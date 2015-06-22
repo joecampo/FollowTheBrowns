@@ -334,14 +334,24 @@
     "position": "Offensive Line",
     "handle": "EOlsen69"
   },
-  "8": {
+  "7": {
     "name": "Josh Lenz",
     "position": "Wide Receiver",
     "handle": "Josh_Lenz"
   },
-  "??": {
+  "8": {
     "name": "Andy Lee",
     "position": "Punter",
     "handle": "AndyLee4"
+  },
+  "87": {
+    "name": "Shane Wynn",
+    "position": "Wide Receiver",
+    "handle": "SHANEWYNN4"
+  },
+  "??": {
+    "name": "Terrelle Pryor",
+    "position": "Wide Receiver",
+    "handle": "TerrellePryor"
   }
 }
