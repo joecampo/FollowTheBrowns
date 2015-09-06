@@ -21,12 +21,13 @@
             <?php if (isset($message)) { ?>
                 <p class="lead"><?= $message; ?></p>
             <?php } else { ?>
-             <p><a class="btn btn-lg btn-browns" href="/authenticate/" role="button"><i class="fa fa-twitter"></i> Follow Everyone (<?= $total; ?>)</a></p>
+            <p><a class="btn btn-lg btn-browns" href="/follow" role="button"><i class="fa fa-twitter"></i> Follow Everyone (<?= $total; ?>)</a></p>
+            <p><a class="btn btn-md btn-default" href="/unfollow"><i class="fa fa-twitter"></i> Unfollow Cut/Waived</a></p>
             <?php } ?>
-             <p><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://followthebrowns.com" data-text="Follow the entire Browns roster @">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-             </p>             
-             <p><a href="https://docs.google.com/spreadsheets/d/1ip4-jQB1rxPhE6uD-zqOnDVzhawxT0xMptv9e940Jb0/edit?pli=1">Sheets</a> | <a href="http://followthebrowns.com/players.json">JSON</a> | <a href="https://github.com/joecampo/FollowTheBrowns"><i class="fa fa-github fa-1x"></i> Github</a></p>
+            <p><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://followthebrowns.com" data-text="Follow the entire Browns roster @">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </p>
+             <p><a href="https://docs.google.com/spreadsheets/d/1ip4-jQB1rxPhE6uD-zqOnDVzhawxT0xMptv9e940Jb0/edit?pli=1">Sheets</a> | <a href="http://followthebrowns.com/players.json">Players JSON</a> | <a href="http://followthebrowns.com/waived.json">Waived/Cut JSON</a> | <a href="https://github.com/joecampo/FollowTheBrowns"><i class="fa fa-github fa-1x"></i> Github</a></p>
         </div>
         
         <div class="container">

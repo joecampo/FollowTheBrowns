@@ -4,7 +4,7 @@ body {
 }
 
 a, a:hover, a:visited {
-    color: #ffffff;
+    color: #fff;
 }
 
 a:hover {
@@ -29,7 +29,7 @@ a:hover {
     background-color: #311d05;
     background-size: cover;
     text-align: center;
-    color: #ffffff;
+    color: #fff;
 }
 
 .footer {
@@ -41,7 +41,7 @@ a:hover {
     background-color: #311d05;
     background-size: cover;
     text-align: center;
-    color: #ffffff;
+    color: #fff;
 }
 
 .lead {
@@ -52,7 +52,10 @@ a:hover {
 
 .btn-browns {
     background-color: #ff3c00;
-    color: #fff;
+}
+
+a.btn-default, a:hover.btn-default, a:visited.btn-default {
+    color: #000;
 }
 
 .container {

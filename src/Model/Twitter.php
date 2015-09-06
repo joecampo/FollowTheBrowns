@@ -40,12 +40,13 @@ class Twitter
      * Get the OAuth Request Token and Secret Request Token
      * and URL to redirect for Twitter authentication.
      *
+     * @param string $action This determines what the callback action should be: follow|unfollow
      * @return string The URL to Twitter's OAuth validation.
      */
-    public function authenticate()
+    public function authenticate($action)
     {
         try {
-            $request = $this->twitter->oauth('oauth/request_token', array('oauth_callback' => CALLBACK));
+            $request = $this->twitter->oauth('oauth/request_token', array('oauth_callback' => CALLBACK . $action));
         } catch (\Abraham\TwitterOAuth\TwitterOAuthException $ex) {
             echo $ex->getMessage();
             exit();
@@ -87,7 +88,19 @@ class Twitter
     public function follow($players)
     {
         foreach ($players as $player) {
-            $this->twitter->post('friendships/create', array('screen_name' => $player->handle));
+            $this->twitter->post('friendships/create', ['screen_name' => $player->handle]);
+        }
+    }
+
+    /**
+     * Unfollow the supplied handles from waived.json
+     *
+     * @param json $players
+     */
+    public function unfollow($players)
+    {
+        foreach ($players as $player) {
+            $this->twitter->post('friendships/destroy', ['screen_name' => $player->handle]);
         }
     }
 }

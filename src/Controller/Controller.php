@@ -44,11 +44,16 @@ class Controller extends \SlimController\SlimController
 
     /**
      * Start the Twitter OAuth authentication process.
+     *
+     * @param string $action This determines what the callback action should be: follow|unfollow
      */
-    public function authenticate()
+    public function authenticate($action)
     {
+        $action = (($action == "follow") ? "follow" : "unfollow");
+
         $this->twitter = new Twitter();
-        $url = $this->twitter->authenticate();
+
+        $url = $this->twitter->authenticate($action);
         if (isset($_SESSION['oauth_token']) && isset($_SESSION['oauth_token_secret'])) {
             $this->app->redirect($url);
         } else {
@@ -59,8 +64,10 @@ class Controller extends \SlimController\SlimController
 
     /**
      * The Twitter OAuth Callback.
+     *
+     * @param string $action This determines what the callback action should be: follow|unfollow
      */
-    public function callback()
+    public function callback($action)
     {
         if (!empty($this->app->request->get('denied'))) {
             // The user canceled the request.
@@ -71,11 +78,13 @@ class Controller extends \SlimController\SlimController
             $this->app->redirect("/");
         }
 
+        $action = (($action == "follow") ? "follow" : "unfollow");
+
         $oauth_verifier = $this->app->request->get('oauth_verifier');
         $this->twitter = new Twitter($_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 
         $this->twitter->getAccess($oauth_verifier);
-        $this->app->redirect("/follow/");
+        $this->app->redirect('/' . $action);
     }
     
     /**
@@ -85,7 +94,7 @@ class Controller extends \SlimController\SlimController
     {
         if (!isset($_SESSION['access_token']) || !isset($_SESSION['access_token_secret'])) {
             // We haven't authenticated yet.
-            $this->app->redirect("/");
+            $this->app->redirect("/authenticate/follow");
         }
         
         $file = file_get_contents("../public/players.json");
@@ -100,5 +109,31 @@ class Controller extends \SlimController\SlimController
             'message' => 'All done! You\'ve followed everyone. Go Browns!'
         ));
         
+    }
+
+    /**
+     * Unfollow all of the players in waived.json
+     */
+    public function unfollow()
+    {
+        if (!isset($_SESSION['access_token']) || !isset($_SESSION['access_token_secret'])) {
+            // We haven't authenticated yet.
+            $this->app->redirect("/authenticate/unfollow");
+        }
+
+        $waivedfile = file_get_contents("../public/waived.json");
+        $waived = json_decode($waivedfile);
+
+        $playersfile = file_get_contents("../public/players.json");
+        $players = json_decode($playersfile);
+
+        $this->twitter = new Twitter($_SESSION['access_token'], $_SESSION['access_token_secret']);
+        $this->twitter->unfollow($waived);
+
+        $this->render('index', array(
+            'players' => $players,
+            'total'   => count(get_object_vars($players)),
+            'message' => 'All done! You\'ve unfollowed all waived players. Go Browns!'
+        ));
     }
 }
