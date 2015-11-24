@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                     <div class="avatar">
                         <a href="https://twitter.com/<?= $player->handle; ?>">
-                            <img src="http://avatars.io/twitter/<?= $player->handle; ?>?size=large" alt="" />
+                            <img src="http://avatars.io/twitter/<?= $player->handle; ?>/medium" alt="" />
                         </a>
                         <div class="content">
                             <p><strong><?= $player->name; ?></strong> <span class="number">#<?= $number; ?></span></p>
